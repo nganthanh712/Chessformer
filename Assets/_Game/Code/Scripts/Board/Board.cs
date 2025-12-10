@@ -25,14 +25,17 @@ public class Board : MonoBehaviour
 
     private void InitCell()
     {
-        
         for (int y = 0; y < Rows.Length; y++)
         {
             for (int x = 0; x < Rows[y].Cells.Length; x++)
             {
                 Rows[y].Cells[x].Coordinates = new Vector2Int(x, y);
-                Rows[y].Cells[x].gameObject.name = $"{x} - {y}";
             }
         }
+    }
+
+    public Vector3 GetPosition(Vector2Int coordinates)
+    {
+        return Rows[coordinates.y].Cells[coordinates.x].transform.position;
     }
 }

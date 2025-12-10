@@ -1,8 +1,9 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class PieceData
 {
     public PieceState PieceState;
-    public BoardCell BoardCell;
+    public Vector2Int BoardCellPosition;
 }

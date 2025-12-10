@@ -4,18 +4,19 @@ public class BoardManager : MonoBehaviour
 {
     public Board Board;
     public Pieces PiecePrefab;
-    public LevelData LevelData;
 
     
     
-    private void CreateLevel(PieceData data)
+    private void CreatePiece(PieceData data)
     {
         Pieces piece = Instantiate(PiecePrefab);
 
         if (data != null)
         {
+            Vector3 posCell = Board.GetPosition(data.BoardCellPosition);
+            
             piece.SetData(data.PieceState);
-            piece.Spawn(data.BoardCell);
+            piece.Spawn(data.BoardCellPosition, posCell);
         }
     }
 }

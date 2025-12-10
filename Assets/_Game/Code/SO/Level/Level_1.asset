@@ -15,6 +15,6 @@ MonoBehaviour:
   LevelIndex: 1
   PieceData:
   - PieceState: {fileID: 11400000, guid: 4cef5c078f0ac4c378b33dae8a885885, type: 2}
-    BoardCell: {fileID: 0}
+    BoardCellPosition: {x: 2, y: 0}
   - PieceState: {fileID: 11400000, guid: cb9cc202fcf0643f88d9d18ffd170699, type: 2}
-    BoardCell: {fileID: 0}
+    BoardCellPosition: {x: 3, y: 0}

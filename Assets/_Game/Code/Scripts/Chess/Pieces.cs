@@ -29,17 +29,17 @@ public class Pieces : MonoBehaviour
       _icon.sprite = state.PieceSprite;
    }
 
-   public void Spawn(BoardCell cell)
+   public void Spawn(Vector2Int cell, Vector3 position)
    {
        if (Cell != null)
        {
            Cell.Piece = null;
        }
        
-       Cell  = cell;
+       Cell.Coordinates  = cell;
        Cell.Piece = this;
        
-       transform.position = cell.transform.position;
+       transform.position = position;
    }
 
    public virtual void GetLegalMoves(){}
