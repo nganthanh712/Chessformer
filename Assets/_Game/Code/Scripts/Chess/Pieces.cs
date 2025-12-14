@@ -33,7 +33,7 @@ public class Pieces : MonoBehaviour
         Debug.LogError($"Cell {state.BoardCellVector}");
         
         _cell = GameController.Ins.BoardManager.GetCell(state.BoardCellVector);
-        _icon.sprite = LevelController.Ins.LevelDatabase.GetSprite(_chess);
+        _icon.sprite = LevelController.Ins.LevelDatabase.GetSpriteByChess(_chess);
 
         Debug.LogError($"ChessName: {_chess.ToString()} - {_cell.Coordinates}");
 

@@ -35,3 +35,24 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: a8dd7c6efba2c4b16a1c4d49a359acce, type: 3}
   - _chess: 9
     _sprite: {fileID: 21300000, guid: 5d8b03c55557a4f51af9984609a9ab99, type: 3}
+  Obtacles:
+  - _obstacleType: 1
+    _obstacleSprite:
+    - {fileID: 21300000, guid: 45479d57713db4a5ca2d743698716947, type: 3}
+    - {fileID: 21300000, guid: 745db7526cfc644c4bbf2d737f9db11d, type: 3}
+    - {fileID: 21300000, guid: c65bcb54ddcc34445b72a0c9effbd0e3, type: 3}
+    - {fileID: 21300000, guid: 0756aaa4a16ee43f8bcd2d711cd1cbb5, type: 3}
+    - {fileID: 21300000, guid: 3e85f58e1e47c4cffb5e301b4306157d, type: 3}
+    - {fileID: 21300000, guid: 454529decd2ac4a1bb7902098759fae7, type: 3}
+    - {fileID: 21300000, guid: c8c3ab7ee7bfe4db2a10af0571b5008a, type: 3}
+    - {fileID: 21300000, guid: f5e76ff2400984257b72fa84f60dd0a4, type: 3}
+    - {fileID: 21300000, guid: 9639903e8da534c63922891b66d6bdc7, type: 3}
+    - {fileID: 21300000, guid: 95b752121fe0e434b86fc319e29073aa, type: 3}
+    - {fileID: 21300000, guid: 08a58f920d6834abd944b354130573a5, type: 3}
+    - {fileID: 21300000, guid: 28e9a376b6e8e47f28385c666c2b635f, type: 3}
+    - {fileID: 21300000, guid: 4adbda0437f564733b5878f50b859889, type: 3}
+    - {fileID: 21300000, guid: 8f27de2aaf50846dea5c7526b0a27fa3, type: 3}
+    - {fileID: 21300000, guid: 725892a649e42489eb03a1fa7bf6b583, type: 3}
+    - {fileID: 21300000, guid: 0bc7b0371c7854b0692b14f01eafd9a0, type: 3}
+    - {fileID: 21300000, guid: 0bc7b0371c7854b0692b14f01eafd9a0, type: 3}
+    _obstaclePrefab: {fileID: 3435692340134462401, guid: ca867da0a8d28403caa680494d880d8e, type: 3}

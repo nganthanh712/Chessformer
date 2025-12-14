@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -7,6 +6,7 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
     public LevelCollection LevelCollection;
     public Pieces PiecePrefab; 
     public PieceState[] Pieces;
+    public ObstaclesState[] Obtacles;
     
     private int AmountOfLevels => LevelCollection.LevelDatas.Length;
 
@@ -15,14 +15,41 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
        LevelCollection.Initialize();
     }
     
-    public Sprite GetSprite(Chess chess)
+    public Sprite GetSpriteByChess(Chess chess)
     {
         Debug.LogError($"Chess : {chess.ToString()}");
         foreach (PieceState p in Pieces)
         {
-            if (p != default && p.PieceSprite != default && p.Chess == chess)
+            if (p != default && p.Chess != Chess.None && p.PieceSprite != default && p.Chess == chess)
             {
                 return p.PieceSprite;
+            }
+        }
+        
+        return default;
+    }
+    
+    public Sprite GetSpriteByObstacles(ObstaclesType obs)
+    {
+        for(int i = 0; i < Obtacles.Length; i++)
+        {
+            if (Obtacles[i] != default && obs != default && Obtacles[i] .Type != ObstaclesType.None && Obtacles[i].Type == obs)
+            {
+                Debug.LogError($"Obs {Obtacles[i].GetRandomSprite().name}");
+                return Obtacles[i].GetRandomSprite();
+            }
+        }
+        
+        return default;
+    }
+
+    public GameObject GetPrefabByObstacles(ObstaclesType obs)
+    {
+        for(int i = 0; i < Obtacles.Length; i++)
+        {
+            if (Obtacles[i] != default && obs != default && Obtacles[i] .Type != ObstaclesType.None && Obtacles[i].Type == obs)
+            {
+                return Obtacles[i].ObstaclePrefab;
             }
         }
         
@@ -45,6 +72,15 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
         {
             Pieces go = Instantiate(PiecePrefab);
             go.Init(p);
+        }
+
+        foreach (var o in levelData.ObstaclesData)
+        {
+            GameObject prefab = GetPrefabByObstacles( o.ObstaclesType);
+
+            GameObject obs = Instantiate(prefab);
+            Obstacle ob = obs.GetComponent<Obstacle>();
+            ob.Init(o);
         }
     }
 }

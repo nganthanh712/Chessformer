@@ -12,9 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b9fd1daeb0347e189afd1f15086286, type: 3}
   m_Name: Level_2
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  LevelIndex: 1
   PieceData:
-  - PieceState: {fileID: 11400000, guid: 4cef5c078f0ac4c378b33dae8a885885, type: 2}
-    BoardCellPosition: {x: 2, y: 0}
-  - PieceState: {fileID: 11400000, guid: cb9cc202fcf0643f88d9d18ffd170699, type: 2}
-    BoardCellPosition: {x: 3, y: 0}
+  - ChessData: 0
+    BoardCellVector: {x: 0, y: 0}
+  - ChessData: 0
+    BoardCellVector: {x: 0, y: 0}
+  ObstaclesData:
+  - ObstaclesState: 1
+    BoardCellVector: {x: 2, y: 3}
+  - ObstaclesState: 1
+    BoardCellVector: {x: 2, y: 4}
+  - ObstaclesState: 1
+    BoardCellVector: {x: 2, y: 5}
+  - ObstaclesState: 1
+    BoardCellVector: {x: 2, y: 6}
+  - ObstaclesState: 1
+    BoardCellVector: {x: 2, y: 7}

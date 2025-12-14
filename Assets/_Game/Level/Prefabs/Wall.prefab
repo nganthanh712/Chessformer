@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5368833680602942469}
   - component: {fileID: 6427651411660929739}
   - component: {fileID: 1854422178578678259}
+  - component: {fileID: 7556819424413547548}
+  - component: {fileID: 3626011141499847740}
   m_Layer: 5
   m_Name: Wall
   m_TagString: Untagged
@@ -75,3 +77,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7556819424413547548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435692340134462401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620bf3a30b51b4594b1e0bbcec130edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3626011141499847740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435692340134462401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dce9c2141a1147caaef905b1ad48850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

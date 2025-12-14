@@ -17,3 +17,8 @@ MonoBehaviour:
     BoardCellVector: {x: 2, y: 0}
   - ChessData: 3
     BoardCellVector: {x: 3, y: 0}
+  ObstaclesData:
+  - ObstaclesType: 1
+    BoardCellVector: {x: 5, y: 1}
+  - ObstaclesType: 1
+    BoardCellVector: {x: 4, y: 5}
