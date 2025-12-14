@@ -5,7 +5,10 @@ using UnityEngine;
 public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
 {
     public LevelCollection LevelCollection;
+    public Pieces PiecePrefab; 
     public PieceState[] Pieces;
+    
+    private int AmountOfLevels => LevelCollection.LevelDatas.Length;
 
     public void Initialize()
     {
@@ -14,6 +17,34 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
     
     public Sprite GetSprite(Chess chess)
     {
-        return (from t in Pieces where chess != default && t != default && chess == t.Chess select t.PieceSprite).FirstOrDefault();
+        Debug.LogError($"Chess : {chess.ToString()}");
+        foreach (PieceState p in Pieces)
+        {
+            if (p != default && p.PieceSprite != default && p.Chess == chess)
+            {
+                return p.PieceSprite;
+            }
+        }
+        
+        return default;
+    }
+
+    public LevelData GetLevelData(int levelIdx)
+    {
+        if (levelIdx >= 0 && levelIdx < AmountOfLevels)
+        {
+            return LevelCollection.LevelDatas[levelIdx];
+        }
+        
+        return null;
+    }
+
+    public void SpawnObject(LevelData levelData)
+    {
+        for (int i = 0; i < levelData.PieceData.Length; i++)
+        {
+            Pieces go = Instantiate(PiecePrefab);
+            go.Init(levelData.PieceData[i]);
+        }
     }
 }

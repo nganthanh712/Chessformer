@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   PieceData:
   - ChessData: 0
-    BoardCellPosition: {x: 2, y: 0}
+    BoardCellVector: {x: 2, y: 0}
   - ChessData: 3
-    BoardCellPosition: {x: 3, y: 0}
+    BoardCellVector: {x: 3, y: 0}

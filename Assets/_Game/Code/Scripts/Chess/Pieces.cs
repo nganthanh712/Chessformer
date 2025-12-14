@@ -1,43 +1,57 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Pieces : MonoBehaviour
 {
-   public Chess Chess { get; set; }
-   public BoardCell Cell { get; set; }
-   
-   public Vector2Int[] Directions = new[]
-   {
-     Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
-   };
+    private Chess _chess { get; set; }
+    private BoardCell _cell { get; set; }
 
-   private Image _icon;
+    public Vector2Int[] Directions = new[]
+    {
+        Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
+    };
 
-   private void Awake()
-   {
-       _icon = GetComponent<Image>();
-   }
+    private Image _icon;
 
-   public void SetData(PieceData state)
-   {
-       if(state == null) return;
-       
-       Chess = state.ChessData;
-       Debug.LogError($"ChessName: {Chess.ToString()}");
-      _icon.sprite = LevelController.Ins.LevelDatabase.GetSprite(Chess);
-   }
+    private void Awake()
+    {
+        _icon = GetComponent<Image>();
+    }
 
-   public void Spawn(Vector2Int cell, Vector3 position)
-   {
-       if (Cell != null)
-       {
-           Cell.Piece = null;
-       }
-       
-       Cell.Coordinates  = cell;
-       Cell.Piece = this;
-       
-       transform.position = position;
-   }
+    public void Init(PieceData data)
+    {
+        SetData(data);
+    }
 
+    public void SetData(PieceData state)
+    {
+        if (state == null) return;
+
+        _chess = state.ChessData;
+
+        Debug.LogError($"Cell {state.BoardCellVector}");
+        
+        _cell = GameController.Ins.BoardManager.GetCell(state.BoardCellVector);
+        _icon.sprite = LevelController.Ins.LevelDatabase.GetSprite(_chess);
+        // LevelController.Ins.LevelDatabase.GetSprite(_chess);
+
+        Debug.LogError($"ChessName: {_chess.ToString()} - {_cell.Coordinates}");
+
+        Spawn(state.BoardCellVector);
+    }
+
+    private void Spawn(Vector2Int cell)
+    {
+        if (_cell != null)
+        {
+            _cell.Piece = null;
+        }
+
+        _cell.Coordinates = cell;
+        _cell.Piece = this;
+        
+        transform.SetParent(_cell.transform);
+        transform.position = GameController.Ins.BoardManager.GetPositionOfCell(cell);
+    }
 }

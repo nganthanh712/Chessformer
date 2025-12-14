@@ -39,14 +39,4 @@ public class PieceState
 
         return null;
     }
-    
-    public Sprite GetSpriteByChess(Chess chess)
-    {
-        if (chess != default && chess.Equals(_chess))
-        {
-            return _sprite;
-        }
-
-        return null;
-    }
 }

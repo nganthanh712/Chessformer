@@ -38,4 +38,9 @@ public class Board : MonoBehaviour
     {
         return Rows[coordinates.y].Cells[coordinates.x].transform.position;
     }
+
+    public BoardCell GetCell(Vector2Int coordinates)
+    {
+        return Rows[coordinates.y].Cells[coordinates.x];
+    }
 }

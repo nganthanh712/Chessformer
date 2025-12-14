@@ -7,6 +7,9 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController Ins;
     public LevelDatabase LevelDatabase;
+    
+    private LevelData _levelData;
+    public LevelData LevelData => _levelData;
 
     private void Awake()
     {
@@ -16,10 +19,18 @@ public class LevelController : MonoBehaviour
         }
         
         Ins = this;
+
+        Init();
     }
 
-    public void Init()
+    private void Init()
     {
         LevelDatabase.Initialize();
+    }
+    
+    public void LoadLevel(int levelIndex)
+    {
+        _levelData = LevelDatabase.GetLevelData(levelIndex);
+        LevelDatabase.SpawnObject(_levelData);
     }
 }
