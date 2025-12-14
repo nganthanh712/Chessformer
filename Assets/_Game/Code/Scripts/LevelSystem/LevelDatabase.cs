@@ -41,10 +41,10 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
 
     public void SpawnObject(LevelData levelData)
     {
-        for (int i = 0; i < levelData.PieceData.Length; i++)
+        foreach (var p in levelData.PieceData)
         {
             Pieces go = Instantiate(PiecePrefab);
-            go.Init(levelData.PieceData[i]);
+            go.Init(p);
         }
     }
 }

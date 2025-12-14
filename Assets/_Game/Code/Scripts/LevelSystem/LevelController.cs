@@ -6,8 +6,8 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Ins;
-    public LevelDatabase LevelDatabase;
     
+    public LevelDatabase LevelDatabase;
     private LevelData _levelData;
     public LevelData LevelData => _levelData;
 

@@ -24,7 +24,7 @@ public class Pieces : MonoBehaviour
         SetData(data);
     }
 
-    public void SetData(PieceData state)
+    private void SetData(PieceData state)
     {
         if (state == null) return;
 
@@ -34,7 +34,6 @@ public class Pieces : MonoBehaviour
         
         _cell = GameController.Ins.BoardManager.GetCell(state.BoardCellVector);
         _icon.sprite = LevelController.Ins.LevelDatabase.GetSprite(_chess);
-        // LevelController.Ins.LevelDatabase.GetSprite(_chess);
 
         Debug.LogError($"ChessName: {_chess.ToString()} - {_cell.Coordinates}");
 
