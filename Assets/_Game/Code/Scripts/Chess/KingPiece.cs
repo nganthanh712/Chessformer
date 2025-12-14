@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class KingPiece : Pieces
 {
-    public override void GetLegalMoves()
-    {
-        
-    }
+    // public override void GetLegalMoves()
+    // {
+    //     
+    // }
 }

@@ -4,19 +4,20 @@ public class BoardManager : MonoBehaviour
 {
     public Board Board;
     public Pieces PiecePrefab;
-
     
-    
-    private void CreatePiece(PieceData data)
+    public void CreatePiece(PieceData data)
     {
+        Chess chess = data.ChessData;
+        Vector2Int position = data.BoardCellPosition;
+        
         Pieces piece = Instantiate(PiecePrefab);
 
-        if (data != null)
+        if (data != default)
         {
-            Vector3 posCell = Board.GetPosition(data.BoardCellPosition);
+            Vector3 posCell = Board.GetPosition(position);
             
-            piece.SetData(data.PieceState);
-            piece.Spawn(data.BoardCellPosition, posCell);
+            piece.SetData(data);
+            piece.Spawn(position, posCell);
         }
     }
 }

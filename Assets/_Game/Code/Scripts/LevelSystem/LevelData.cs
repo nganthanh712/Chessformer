@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class LevelData : ScriptableObject
+public class LevelData : ScriptableObject //save data of each level
 {
-    public int LevelIndex;
+    //Thieu vat can
     public PieceData[] PieceData;
 }
 

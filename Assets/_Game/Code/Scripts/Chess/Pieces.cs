@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PieceType{King, Queen, Rook, Bishop, Knight, Pawn}
-public enum PieceColor{Black, White}
-
 public class Pieces : MonoBehaviour
 {
-   public PieceState PieceState { get; set; }
+   public Chess Chess { get; set; }
    public BoardCell Cell { get; set; }
    
    public Vector2Int[] Directions = new[]
@@ -21,12 +18,13 @@ public class Pieces : MonoBehaviour
        _icon = GetComponent<Image>();
    }
 
-   public void SetData(PieceState state)
+   public void SetData(PieceData state)
    {
        if(state == null) return;
        
-       PieceState = state;
-      _icon.sprite = state.PieceSprite;
+       Chess = state.ChessData;
+       Debug.LogError($"ChessName: {Chess.ToString()}");
+      _icon.sprite = LevelController.Ins.LevelDatabase.GetSprite(Chess);
    }
 
    public void Spawn(Vector2Int cell, Vector3 position)
@@ -42,5 +40,4 @@ public class Pieces : MonoBehaviour
        transform.position = position;
    }
 
-   public virtual void GetLegalMoves(){}
 }

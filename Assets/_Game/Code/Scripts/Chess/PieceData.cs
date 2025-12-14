@@ -4,6 +4,6 @@ using UnityEngine;
 [Serializable]
 public class PieceData
 {
-    public PieceState PieceState;
+    public Chess ChessData;
     public Vector2Int BoardCellPosition;
 }
