@@ -1,16 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Pieces : MonoBehaviour
 {
     private Chess _chess { get; set; }
     private BoardCell _cell { get; set; }
-
-    public Vector2Int[] Directions = new[]
-    {
-        Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
-    };
 
     private Image _icon;
 
@@ -35,7 +32,7 @@ public class Pieces : MonoBehaviour
         _cell = GameController.Ins.BoardManager.GetCell(state.BoardCellVector);
         _icon.sprite = LevelController.Ins.LevelDatabase.GetSpriteByChess(_chess);
 
-        Debug.LogError($"ChessName: {_chess.ToString()} - {_cell.Coordinates}");
+        Debug.LogError($"ChessName: {_chess.ToString()} - {_cell.Coordinates} - {_icon.sprite.name}");
 
         Spawn(state.BoardCellVector);
     }

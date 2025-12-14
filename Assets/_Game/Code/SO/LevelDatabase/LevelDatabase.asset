@@ -15,26 +15,30 @@ MonoBehaviour:
   LevelCollection: {fileID: 11400000, guid: 36146da1e66ad45358090cdc6153184d, type: 2}
   PiecePrefab: {fileID: -1597142506312777327, guid: e19c08f9657a0449fad08829bb22c33e, type: 3}
   Pieces:
-  - _chess: 0
-    _sprite: {fileID: 21300000, guid: bfc172717c1c84f2d967e2da5f8a3126, type: 3}
-  - _chess: 1
-    _sprite: {fileID: 21300000, guid: ea6264892460748a1b7110f392054a4d, type: 3}
-  - _chess: 2
-    _sprite: {fileID: 21300000, guid: bdffc499535144158a972744df99c1ec, type: 3}
-  - _chess: 3
-    _sprite: {fileID: 21300000, guid: 008566c1531974ce993679c3f01a1700, type: 3}
-  - _chess: 4
-    _sprite: {fileID: 21300000, guid: a75c372a2622a4ea3b9a3a6c4d6f1678, type: 3}
-  - _chess: 5
-    _sprite: {fileID: 21300000, guid: b2531ce34ebf64577aa2b1e08c468aa1, type: 3}
-  - _chess: 6
-    _sprite: {fileID: 21300000, guid: bcc5c7219087244ffac1112268b582a6, type: 3}
-  - _chess: 7
-    _sprite: {fileID: 21300000, guid: d16923011d6da433dbbaf145f05b41a0, type: 3}
-  - _chess: 8
-    _sprite: {fileID: 21300000, guid: a8dd7c6efba2c4b16a1c4d49a359acce, type: 3}
-  - _chess: 9
-    _sprite: {fileID: 21300000, guid: 5d8b03c55557a4f51af9984609a9ab99, type: 3}
+  - _chessColor: 0
+    PieceTypeData:
+    - _chess: 2
+      _sprite: {fileID: 21300000, guid: bdffc499535144158a972744df99c1ec, type: 3}
+    - _chess: 4
+      _sprite: {fileID: 21300000, guid: a75c372a2622a4ea3b9a3a6c4d6f1678, type: 3}
+    - _chess: 6
+      _sprite: {fileID: 21300000, guid: bcc5c7219087244ffac1112268b582a6, type: 3}
+    - _chess: 8
+      _sprite: {fileID: 21300000, guid: a8dd7c6efba2c4b16a1c4d49a359acce, type: 3}
+    - _chess: 0
+      _sprite: {fileID: 21300000, guid: bfc172717c1c84f2d967e2da5f8a3126, type: 3}
+  - _chessColor: 1
+    PieceTypeData:
+    - _chess: 1
+      _sprite: {fileID: 21300000, guid: d16923011d6da433dbbaf145f05b41a0, type: 3}
+    - _chess: 3
+      _sprite: {fileID: 21300000, guid: 008566c1531974ce993679c3f01a1700, type: 3}
+    - _chess: 5
+      _sprite: {fileID: 21300000, guid: b2531ce34ebf64577aa2b1e08c468aa1, type: 3}
+    - _chess: 7
+      _sprite: {fileID: 21300000, guid: d16923011d6da433dbbaf145f05b41a0, type: 3}
+    - _chess: 9
+      _sprite: {fileID: 21300000, guid: 5d8b03c55557a4f51af9984609a9ab99, type: 3}
   Obtacles:
   - _obstacleType: 1
     _obstacleSprite:

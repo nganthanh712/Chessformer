@@ -33,11 +33,11 @@ public class Obstacle : MonoBehaviour
     {
         if (_cell != null)
         {
-            _cell.obstacle = null;
+            _cell.Obstacle = null;
         }
 
         _cell.Coordinates = cell;
-        _cell.obstacle = this;
+        _cell.Obstacle = this;
 
         transform.SetParent(_cell.transform);
         transform.position = GameController.Ins.BoardManager.GetPositionOfCell(cell);

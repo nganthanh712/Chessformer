@@ -7,5 +7,7 @@ public class BoardCell : MonoBehaviour
 {
     public Vector2Int Coordinates;
     public Pieces Piece;
-    [FormerlySerializedAs("Obtacle")] public Obstacle obstacle;
+    [FormerlySerializedAs("obstacle")] public Obstacle Obstacle;
+    
+    public bool IsOccupied => Piece != null;
 }
