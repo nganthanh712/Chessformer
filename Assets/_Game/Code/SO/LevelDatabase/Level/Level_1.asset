@@ -15,7 +15,7 @@ MonoBehaviour:
   PieceData:
   - ChessData: 3
     BoardCellVector: {x: 3, y: 0}
-  - ChessData: 0
+  - ChessData: 2
     BoardCellVector: {x: 2, y: 0}
   ObstaclesData:
   - ObstaclesType: 1

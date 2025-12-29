@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardManager : MonoBehaviour
@@ -13,5 +14,10 @@ public class BoardManager : MonoBehaviour
     public BoardCell GetCell(Vector2Int cell)
     {
         return Board.GetCell(cell);
+    }
+
+    public void FillColor(List<Vector2Int> cells, bool canMove)
+    {
+        Board.FillColor(cells, canMove);
     }
 }

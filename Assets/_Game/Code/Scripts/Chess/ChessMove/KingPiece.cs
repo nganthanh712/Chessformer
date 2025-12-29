@@ -3,42 +3,50 @@ using UnityEngine;
 
 public class KingPiece : Pieces
 {
+    private BoardCell _cell;
     private List<Vector2Int> _moves = new();
 
     public List<Vector2Int> Moves => _moves;
+    
+    private List<BoardCell> _pieceCanEat = new();
+    public List<BoardCell> PieceCanEat => _pieceCanEat;
 
     public Vector2Int[] _directions = 
     {
         Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left,
         Vector2Int.one, -Vector2Int.one, new (1, -1), new (-1, 1)
     };
+    
+    public void GetCell(BoardCell curCell)
+    {
+        _cell = curCell;
+    }
 
-    public List<Vector2Int> GetMove(Vector2Int cell)
+    private List<Vector2Int> GetMove()
     {
         for (int i = 0; i<_directions.Length; i++)
         {
-            Vector2Int cellToMove = cell + _directions[i];
+            Vector2Int cellToMove = _cell.Coordinates+ _directions[i];
 
-            if (HasObstacle(cellToMove))
+            BoardCell cell = GameController.Ins.BoardManager.GetCell(cellToMove);
+
+            if (cell == null || cell.IsOccupied)
             {
                 continue;
             }
             
             Moves.Add(cellToMove);
         }
+        
+        GameController.Ins.BoardManager.FillColor(Moves, true);
 
         return Moves;
     }
 
-    private bool HasObstacle(Vector2Int cellToMove)
+    protected override void OnClickPiece()
     {
-        BoardCell cell = GameController.Ins.BoardManager.GetCell(cellToMove);
-        
-        if (cell != null && cell.IsOccupied)
-        {
-            return true;
-        }
-        
-        return false;
+        Debug.LogError("OnClick King 2");
+
+        GetMove();
     }
 }

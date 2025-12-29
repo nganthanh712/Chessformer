@@ -15,15 +15,39 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
         LevelCollection.Initialize();
     }
 
+    public ChessType GetPieceType(Chess chessType)
+    {
+        foreach (PieceState p in Pieces)
+        {
+            if (p.Chess == chessType)
+            {
+                return p.ChessType;
+            }
+        }
+
+        return default;
+    }
+    
+    public ChessColor GetPieceColor(Chess chessType)
+    {
+        foreach (PieceState p in Pieces)
+        {
+            if (p.Chess == chessType)
+            {
+                return p.ChessColor;
+            }
+        }
+
+        return default;
+    }
+
     public Sprite GetSpriteByChess(Chess chessType)
     {
         foreach (PieceState p in Pieces)
         {
-            var chess = p.GetChessByType(chessType);
-
-            if (chess == chessType)
+            if (p.Chess == chessType)
             {
-                return p.GetSpriteByType(chessType);
+                return p.PieceSprite;
             }
         }
 
@@ -37,7 +61,6 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
             if (Obtacles[i] != default && obs != default && Obtacles[i].Type != ObstaclesType.None &&
                 Obtacles[i].Type == obs)
             {
-                Debug.LogError($"Obs {Obtacles[i].GetRandomSprite().name}");
                 return Obtacles[i].GetRandomSprite();
             }
         }
@@ -45,7 +68,7 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
         return default;
     }
 
-    public GameObject GetPrefabByObstacles(ObstaclesType obs)
+    private GameObject GetPrefabByObstacles(ObstaclesType obs)
     {
         for (int i = 0; i < Obtacles.Length; i++)
         {
@@ -85,5 +108,18 @@ public class LevelDatabase : ScriptableObject //Save data Chess, LevelCollection
             Obstacle ob = obs.GetComponent<Obstacle>();
             ob.Init(o);
         }
+    }
+
+    public bool IsBlack(Chess chessType)
+    {
+        foreach (PieceState p in Pieces)
+        {
+            if (p.Chess == chessType)
+            {
+                return p.ChessColor == ChessColor.Black;
+            }
+        }
+
+        return false;
     }
 }

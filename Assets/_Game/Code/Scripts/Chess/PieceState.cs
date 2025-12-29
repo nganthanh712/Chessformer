@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 
 public enum Chess
 {
+    None = 0,
     BlackKing, //Vua
     WhiteKing,
     BlackQueen, //Hau
@@ -13,12 +14,22 @@ public enum Chess
     BlackKnight, //Ma
     WhiteKnight,
     BlackRook, //Xe
-    WhiteRook,
-    None
+    WhiteRook
+}
+
+public enum ChessType
+{
+    None = 0,
+    King, //Vua
+    Queen, //Hau
+    Bishop, //Tuong
+    Knight, //Ma
+    Rook //Xe
 }
 
 public enum ChessColor
 {
+    None = 0,
     Black,
     White
 }
@@ -26,46 +37,19 @@ public enum ChessColor
 [System.Serializable]
 public class PieceState
 {
-    [SerializeField] private ChessColor _chessColor;
-    public ChessColor ChessColor => _chessColor;
-    public PieceTypeData[] PieceTypeData;
-
-    private Dictionary<Chess, Sprite> ChessData = new();
-
-    public Chess GetChessByType(Chess type)
-    {
-        foreach (var p in PieceTypeData)
-        {
-            if (type != default && p.Chess != default && p.Chess == type)
-            {
-                return p.Chess;
-            }
-        }
-
-        return default;
-    }
-
-    public Sprite GetSpriteByType(Chess type)
-    {
-        foreach (var p in PieceTypeData)
-        {
-            if (type == default || p.Chess == default) continue;
-
-            if (p.Chess == type)
-            {
-                return p.PieceSprite;
-            }
-        }
-
-        return default;
-    }
-}
-
-[System.Serializable]
-public class PieceTypeData
-{
     [SerializeField] private Chess _chess;
     public Chess Chess => _chess;
+    [SerializeField] private ChessType _chessType;
+    public ChessType ChessType => _chessType;
     [SerializeField] private Sprite _sprite;
     public Sprite PieceSprite => _sprite;
+    [SerializeField] private ChessColor _chessColor;
+    public ChessColor ChessColor => _chessColor;
+
+    public PieceState(ChessType type, ChessColor color, Sprite sprite)
+    {
+        _chessType = type;
+        _chessColor = color;
+        _sprite = sprite;
+    }
 }
