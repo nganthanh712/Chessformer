@@ -9,6 +9,7 @@ public class Board : MonoBehaviour
 
     public BoardCell CellPrefab;
 
+    public Color32 CellColor;
     public int[,] BoardSize;
 
     public int Size => Cells.Length;
@@ -32,9 +33,15 @@ public class Board : MonoBehaviour
     {
         for (int y = 0; y < Rows.Length; y++)
         {
+            
             for (int x = 0; x < Rows[y].Cells.Length; x++)
             {
                 Rows[y].Cells[x].Coordinates = new Vector2Int(x, y);
+                
+                if ((x + y) % 2 == 0)
+                {
+                    Rows[y].Cells[x].SetColor(CellColor);
+                }
             }
         }
     }

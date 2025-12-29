@@ -72,7 +72,7 @@ public class Pieces : MonoBehaviour, IPointerClickHandler
         _cell.Coordinates = cell;
         _cell.Piece = this;
         
-        transform.SetParent(_cell.transform);
+        transform.SetParent(_cell.Cell.transform);
         transform.position = GameController.Ins.BoardManager.GetPositionOfCell(cell);
     }
 
@@ -86,6 +86,11 @@ public class Pieces : MonoBehaviour, IPointerClickHandler
         return true;
     }
 
+    public void SetStateCanMove()
+    {
+        
+    }
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         OnClickPiece();

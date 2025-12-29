@@ -9,6 +9,9 @@ public class BoardCell : MonoBehaviour
     public Vector2Int Coordinates;
     public Pieces Piece;
     public Obstacle Obstacle;
+    public Image Cell;
+    public Image CellCanMove;
+    public Sprite DotImg;
     public bool IsBlack => _color != Color.white;
 
     private Image _image;
@@ -16,8 +19,7 @@ public class BoardCell : MonoBehaviour
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
-        _color =_image.color;
+        _color = Cell.color;
     }
 
     public bool IsOccupied => Piece != null || Obstacle != null;
@@ -33,12 +35,25 @@ public class BoardCell : MonoBehaviour
     {
         if (canMove)
         {
-            _image.color = Color.red;
+            CellCanMove.sprite = DotImg;
+            SetAlpha(CellCanMove, 0.5f);
         }
         else
         {
-            _image.color = _color;
+            CellCanMove.sprite = default;
+            SetAlpha(CellCanMove, 1f);
         }
     }
 
+    private void SetAlpha(Image _image, float alpha)
+    {
+        var color = _image.color;
+        color.a = alpha;
+        _image.color = color;
+    }
+
+    public void SetColor(Color32 color)
+    {
+        Cell.color = color;
+    }
 }
